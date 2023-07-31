@@ -4,8 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="puzzles">
+    <p class="main-title"><strong>Простые загадки</strong></p>
+    <div class="puzzle">
+      <div class="puzzle-number">1</div>
+      <div class="puzzle-text">
+        <p>Вдруг из черной темноты<br>В небе выросли кусты.<br>А на них-то голубые,<br>Пунцовые, золотые<br>Распускаются цветы<br>Небывалой красоты.<br>И все улицы под ними<br>Тоже стали голубыми,<br>Пунцовыми, золотыми,<br>Разноцветными.</p>
+        <input type="text" class="puzzle-input">
+      </div>
+    </div>
+    <div class="puzzle">
+      <div class="puzzle-number">2</div>
+      <div class="puzzle-text">
+        <p>Из стены торчу,<br>Головой кручу,<br>Мою и пою<br>Целую семью.</p>
+        <input type="text" class="puzzle-input">
+      </div>
+    </div>
+    <div class="puzzle">
+      <div class="puzzle-number">3</div>
+      <div class="puzzle-text">
+        <p>Стоит дуб,<br>В нем двенадцать гнезд,<br>В каждом гнезде<br>По четыре яйца,<br>В каждом яйце<br>По семи цыпленков.</p>
+        <input type="text" class="puzzle-input">
+      </div>
+    </div>
+    <div class="puzzle">
+      <div class="puzzle-number">x</div>
+      <div class="puzzle-text">
+        <p>Правильно: <span id="correct-answers"></span></p>
+        <button class="puzzle-btn" id="puzzle-btn">Ответить</button>
+      </div>
+    </div>
+  </div>
   <script src="app.js"></script>
 </body>
 </html>

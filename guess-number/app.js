@@ -16,7 +16,6 @@ function playGame (users) {
     } else if (userAnswer == answer) {
       alert("Вы угадали!")
       users = users.reverse()
-      console.log(users)
       playGame(users)
     } else {
       alert("Необходимо ввести число!")

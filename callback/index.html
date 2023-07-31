@@ -1,0 +1,54 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+	/*
+		Ваш код в текущем блоке
+		Необходимо при открытии данного html вывести пользователю список контактов и их контрагентов.
+	*/
+	/**/
+	/*
+		Симулируем вызов функции, отправляющей запрос в БД.
+		Функция selectFromDatabase является асинхронной. Её выполнение занимает некоторое время.
+		Метод setTimeout симулирует некоторое случайное время выполнения запроса.
+	*/
+  function callback(array) {
+    array.forEach(element => {
+      document.write(`<p>Контакт: ${element.contact}</p>`)
+      document.write(`<p>Контрагент: ${element.account}</p>`)
+      document.write(`<hr>`)
+    });
+  }
+
+	function getCollection(callback)
+	{
+		var result = setTimeout(selectFromDatabase, Math.round(Math.random()*1500), callback);
+		return result;
+	}
+	/*
+		Симуляция ответа на запрос от БД.
+	*/
+	function selectFromDatabase(callback)
+	{
+		var array = [
+			{
+				contact: "Боря Лютый",
+				account: "ТОО \"Ромашка\"",
+			},
+			{
+				contact: "Кеша Лысый",
+				account: "ИП \"Волосы\"",
+			},
+			{
+				contact: "Карлыгаш",
+				account: "ТОО \"Сокол\"",
+			},
+			{
+				contact: "Саша Белый",
+				account: "АО \"Бригада\"",
+			}
+		];
+		callback(array);
+		return array;
+	}
+
+  getCollection(callback)
+</script>

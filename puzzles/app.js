@@ -1,35 +1,35 @@
-const puzzles = [
-  {
-    text: "Вдруг из черной темноты\nВ небе выросли кусты.\nА на них-то голубые,\nПунцовые, золотые\nРаспускаются цветы\nНебывалой красоты.\nИ все улицы под ними\nТоже стали голубыми,\nПунцовыми, золотыми,\nРазноцветными.",
-    answers: ["Салют", "салют", "фейерверк", "Фейерверк"]
-  },
-  {
-    text: "Из стены торчу,\nГоловой кручу,\nМою и пою\nЦелую семью.",
-    answers: ["Водопроводный кран", "водопроводный кран", "кран", "Кран", "Душ","душ"]
-  },
-  {
-    text: "Стоит дуб,\nВ нем двенадцать гнезд,\nВ каждом гнезде\nПо четыре яйца,\nВ каждом яйце\nПо семи цыпленков.",
-    answers: ["Год", "год", "один год", "Один год"]
-  },
+const answers = [
+  ["Салют", "салют", "фейерверк", "Фейерверк"],
+  ["Водопроводный кран", "водопроводный кран", "кран", "Кран", "Душ","душ"],
+  ["Год", "год", "один год", "Один год"],
 ]
 
-let count = 0
-let i = 0
-while (true) {
-  alert(puzzles[i].text)
-  let answer = prompt("Ответ: ")
-  count++
+const inputs = document.querySelectorAll(".puzzle-input")
+
+const btn = document.querySelector("#puzzle-btn")
+
+let correct_answers = 0
+let values = []
+
+const span = document.querySelector("#correct-answers")
+
+
+
+btn.addEventListener("click", () => {
+  inputs.forEach(e => {
+    values.push(e.value)
+  })
   
-  if (answer == "q" || i == puzzles.length - 1) {
-    break
+  for (let i = 0; i < values.length; i++) {
+    if (answers[i].includes(values[i])) {
+      correct_answers++
+      inputs[i].parentElement.classList.add("correct")
+    }
+    else {
+      inputs[i].parentElement.classList.add("wrong")
+    }
   }
 
-  if (puzzles[i].answers.includes(answer)) {
-    alert("Верно!")
-    i++
-  } else {
-    alert("Не верно!")
-  }
-}
+  span.innerText = correct_answers
 
-alert(`Подсчет введенных попыток: ${count}`)
+})
